@@ -1,0 +1,28 @@
+<div class="card">
+    <h1 mat-dialog-title>What to do?</h1>
+
+    <div class="date-input">
+
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date and a time" [(ngModel)]="item.date" [formControl]="dateControl" [min]="minDate" [max]="maxDate" [disabled]="disabled">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" [disableMinute]="disableMinute"
+                [hideTime]="hideTime">
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+
+    </div>
+
+    <div class="input-field">
+        <mat-form-field class="full-width">
+            <mat-label>What to do ?</mat-label>
+            <input matInput [(ngModel)]="item.name">
+        </mat-form-field>
+    </div>
+    <div class="button-actions">
+        <mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-raised-button (click)="addToDoList()" [disabled]="!item.name || !item.date"> Save </button>
+        </mat-dialog-actions>
+    </div>
+</div>
